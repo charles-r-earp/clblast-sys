@@ -1,0 +1,26 @@
+name: Rust
+
+on:
+  - push
+  - pull_request
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }} 
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+    steps:
+    - uses: actions/checkout@v2
+      with: 
+        submodules: recursive
+    - name: Install OpenCL
+      run: sudo apt install ocl-icd-opencl-dev pocl-opencl-icd
+    - name: Build 
+      run: cargo build -vv
+    - name: Run Saxpy Example
+      run: cargo run --example saxpy
