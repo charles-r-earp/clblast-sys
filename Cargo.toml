@@ -13,6 +13,8 @@ cmake = "0.1.42"
 
 [dev-dependencies]
 ocl = "0.19.3"
+ndarray = "0.13.1"
+num-traits = "0.2.12"
 
 [dependencies]
 libc = "0.2.72"
