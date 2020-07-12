@@ -22,5 +22,5 @@ jobs:
       run: sudo apt install ocl-icd-opencl-dev pocl-opencl-icd
     - name: Build 
       run: cargo build -vv
-    - name: Run Saxpy Example
-      run: cargo run --example saxpy
+    - name: Test
+      run: cargo test --tests
